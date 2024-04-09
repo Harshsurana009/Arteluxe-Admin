@@ -5,7 +5,7 @@ import cross_icon from "../../assets/cross_icon.png";
 const ListProduct = () => {
   const [all_products, setAllProducts] = useState([]);
   const fetchInfo = async () => {
-    await fetch("http://30ec-117-211-249-155.ngrok-free.app/admin/api/products")
+    await fetch("https://30ec-117-211-249-155.ngrok-free.app/admin/api/products")
       .then((resp) => resp.json())
       .then((data) => setAllProducts(data));
   };
@@ -14,7 +14,7 @@ const ListProduct = () => {
   }, []);
 
   const removeProduct = async (id) => {
-    await fetch(`http://30ec-117-211-249-155.ngrok-free.app/admin/api/products/${id}`, {
+    await fetch(`https://30ec-117-211-249-155.ngrok-free.app/admin/api/products/${id}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json"

@@ -8,7 +8,7 @@ const AddProduct = () => {
     name: "",
     old_price: "",
     new_price: "",
-    category: "Magent",
+    category: "magnet",
     image_id: "",
   });
   const imageHandler = (e) => {
@@ -36,8 +36,8 @@ const AddProduct = () => {
       .then((data) => (responseData = data));
 
     if (responseData.id) {
-      formData.append('product_data', JSON.stringify(product));
       product.image_id = responseData.id;
+      formData.append('product_data', JSON.stringify(product));
       console.log(product);
       await fetch("https://30ec-117-211-249-155.ngrok-free.app/admin/api/products", {
         method: "POST",
@@ -49,7 +49,7 @@ const AddProduct = () => {
       })
         .then((resp) => resp.json())
         .then((data) =>
-          data.success
+          data.id
             ? alert("Product Added Successfully")
             : alert("Product Not Added")
         );
@@ -99,7 +99,8 @@ const AddProduct = () => {
           className="add-product-selector"
         >
           <option value="magnet">Magnet</option>
-          <option value="decoration">Decoration</option>
+          <option value="gift_item">Gift Item</option>
+          <option value="chocolate">Chocolate</option>
           <option value="personalised_item">Personalised Item</option>
         </select>
       </div>
