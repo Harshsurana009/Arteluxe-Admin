@@ -25,7 +25,8 @@ const AddProduct = () => {
     let formData = new FormData();
     formData.append("image", image);
 
-    await fetch("https://30ec-117-211-249-155.ngrok-free.app/admin/api/images", {
+
+    await fetch("https://arteluxe.onrender.com/admin/api/images", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -39,7 +40,7 @@ const AddProduct = () => {
       product.image_id = responseData.id;
       formData.append('product_data', JSON.stringify(product));
       console.log(product);
-      await fetch("https://30ec-117-211-249-155.ngrok-free.app/admin/api/products", {
+      await fetch("https://arteluxe.onrender.com/admin/api/products", {
         method: "POST",
         headers: {
           Accept: "application/json",
